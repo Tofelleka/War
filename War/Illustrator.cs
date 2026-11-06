@@ -1,4 +1,6 @@
 ﻿using System;
+using War.Platoons;
+using War.Soldiers;
 
 namespace War
 {
@@ -63,9 +65,15 @@ namespace War
             Console.WriteLine();
         }
 
-        internal void ShowSelectPlatoon() => Console.Write("\nВыберите свой отряд: ");
+        internal void ShowSelectPlatoon()
+        {
+            Console.Write("\nВыберите свой отряд: ");
+        }
 
-        internal void ShowSelectEnemyPlatoon() => Console.Write("\nВыберите отряд противника: ");
+        internal void ShowSelectEnemyPlatoon()
+        {
+            Console.Write("\nВыберите отряд противника: ");
+        }
 
         internal void ShowPlatoonSelectionMenu()
         {

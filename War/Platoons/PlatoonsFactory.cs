@@ -1,71 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using War.Soldiers;
 
-namespace War
+namespace War.Platoons
 {
-    internal enum SoldierType
-    {
-        Shooter,
-        Sniper,
-        Flame,
-        Machine
-    }
-
-    internal class SoldierFactory
-    {
-        internal Soldier Create(SoldierType type)
-        {
-            switch (type)
-            {
-                case SoldierType.Shooter:
-                    return new Shooter();
-
-                case SoldierType.Sniper:
-                    return new Sniper();
-
-                case SoldierType.Flame:
-                    return new FlamethrowerOperator();
-
-                case SoldierType.Machine:
-                    return new MachineGanner();
-
-                default:
-                    throw new ArgumentException("Неизвестный тип солдата.");
-            }
-        }
-    }
-
-    internal enum PlatoonType
-    {
-        assault,
-        patrol,
-        partisan,
-        universal
-    }
-
-    internal static class PlatoonConfig
-    {
-        internal const string AssaultName = "Штурмовой";
-        internal const int AssaultFlamethrowerOperators = 2;
-        internal const int AssaultMachineGunners = 2;
-        internal const int AssaultShooters = 6;
-
-        internal const string PatrolName = "Патрульный";
-        internal const int PatrolSnipers = 1;
-        internal const int PatrolMachineGunners = 1;
-        internal const int PatrolShooters = 8;
-
-        internal const string PartisanName = "Партизанский";
-        internal const int PartisanSnipers = 5;
-        internal const int PartisanShooters = 5;
-
-        internal const string UniversalName = "Универсальный";
-        internal const int UniversalSnipers = 1;
-        internal const int UniversalFlamethrowerOperators = 1;
-        internal const int UniversalMachineGunners = 2;
-        internal const int UniversalShooters = 6;
-    }
-
     internal class PlatoonsFactory
     {
         private SoldierFactory _soldierFactory = new SoldierFactory();
@@ -74,16 +12,16 @@ namespace War
         {
             switch (type)
             {
-                case PlatoonType.assault:
+                case PlatoonType.Assault:
                     return CreateAssault();
 
-                case PlatoonType.patrol:
+                case PlatoonType.Patrol:
                     return CreatePatrol();
 
-                case PlatoonType.partisan:
+                case PlatoonType.Partisan:
                     return CreatePartisan();
 
-                case PlatoonType.universal:
+                case PlatoonType.Universal:
                     return CreateUniversal();
 
                 default:

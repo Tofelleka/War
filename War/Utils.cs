@@ -4,7 +4,7 @@ namespace War
 {
         internal static class Utils
         {
-            public static Random random = new Random();
+            private static Random _random = new Random();
 
             public static int ReadNumber()
             {
@@ -30,7 +30,7 @@ namespace War
 
             public static int Random(int min, int max)
             {
-                return random.Next(min, max);
+                return _random.Next(min, max);
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using War.Platoons;
 
 namespace War
 {
@@ -41,23 +42,24 @@ namespace War
         {
             bool isWork = true;
 
-            while (isWork) {
+            while (isWork)
+            {
 
                 Illustrator.Instance.ShowPlatoonSelectionMenu();
 
                 switch (Utils.ReadNumber())
                 {
                     case Illustrator.CommandAssault:
-                        return PlatoonType.assault;
+                        return PlatoonType.Assault;
 
                     case Illustrator.CommandPatrol:
-                        return PlatoonType.patrol;
+                        return PlatoonType.Patrol;
 
                     case Illustrator.CommandPartisan:
-                        return PlatoonType.partisan;
+                        return PlatoonType.Partisan;
 
                     case Illustrator.CommandUniversal:
-                        return PlatoonType.universal;
+                        return PlatoonType.Universal;
 
                     default:
                         Console.WriteLine("\n\nНеверный тип отряда!");
@@ -67,7 +69,7 @@ namespace War
                 Console.Clear();
             }
 
-            return PlatoonType.assault;
+            return PlatoonType.Assault;
         }
     }
 }

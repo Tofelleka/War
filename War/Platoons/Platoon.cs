@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using War.Soldiers;
 
-namespace War
+namespace War.Platoons
 {
     internal class Platoon
     {
@@ -32,18 +33,24 @@ namespace War
         {
             foreach (Soldier soldier in _soldiers)
             {
-                if (soldier.Health <= 0) continue;
+                if (soldier.Health <= 0)
+                {
+                    continue;
+                }
 
-                    AttackReport report = soldier.Attack(enemyPlatoon);
+                AttackReport report = soldier.Attack(enemyPlatoon);
 
-                    if (report != null)
-                    {
-                        Illustrator.Instance.ShowAttackReport(report);
-                    }
-                    else break;
+                if (report != null)
+                {
+                    Illustrator.Instance.ShowAttackReport(report);
+                }
+                else
+                {
+                    break;
                 }
             }
-        
+        }
+
         internal Soldier GetRandomSoldier()
         {
             if (_soldiers.Count == 0) return null;
@@ -55,11 +62,9 @@ namespace War
         {
             for (int i = _soldiers.Count - 1; i >= 0; i--)
             {
+                if (_soldiers[i].Health <= 0)
                 {
-                    if (_soldiers[i].Health <= 0)
-                    {
-                        _soldiers.RemoveAt(i);
-                    }
+                    _soldiers.RemoveAt(i);
                 }
             }
         }

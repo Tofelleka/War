@@ -1,5 +1,5 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
+using War.Platoons;
 
 namespace War
 {
@@ -26,7 +26,7 @@ namespace War
                 Thread.Sleep(1000);
 
                 Illustrator.Instance.ShowBattleHeader(_firstPlatoon.PlatoonName, _secondPlatoon.PlatoonName);
-                
+
                 _firstPlatoon.AttackEnemyPlatoon(_secondPlatoon);
 
                 Illustrator.Instance.ShowBattleStatus(
